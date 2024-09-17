@@ -1,0 +1,27 @@
+.card {
+  width: 385px;
+  height: 455px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #DBDBDB;
+  border-radius: 16px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 25px;
+  gap: 20px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.details {
+  display: flex;
+  gap: 32px;
+  width: 214px;
+}
