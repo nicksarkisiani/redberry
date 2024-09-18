@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Header from "./components/layout/header/Header";
 import Card from "./components/shared/card/Card";
-import {$api} from "./http";
+import {useActions} from "./hooks/useActions";
 
 function App() {
-    const agents = $api.get("/cities")
-    console.log(agents)
+    const {fetchEstates} = useActions()
+
+    useEffect(() => {
+        fetchEstates()
+
+    }, [fetchEstates])
+
   return (
     <div className="App">
         <Header />
