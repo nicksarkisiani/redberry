@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import Header from "./components/layout/header/Header";
-import Card from "./components/shared/card/Card";
 import {useActions} from "./hooks/useActions";
+import {Outlet} from "react-router";
 
 function App() {
     const {fetchEstates} = useActions()
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
         <Header />
-        <Card />
+        <Outlet />
     </div>
   );
 }

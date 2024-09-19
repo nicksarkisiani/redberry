@@ -1,0 +1,53 @@
+.container {
+  width: 790px;
+  margin: 62px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+}
+
+.title {
+  align-self: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 20px;
+  height: 85px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formItem {
+  height: max-content;
+}
+
+.formItemInput {
+  width: 384px;
+}
+
+.subtitle {
+  margin-bottom: 22px !important;
+}
+
+.textArea {
+  height: 150px;
+}
+
+.formSubmit {
+  align-self: end;
+  display: flex;
+  justify-content: start;
+}
