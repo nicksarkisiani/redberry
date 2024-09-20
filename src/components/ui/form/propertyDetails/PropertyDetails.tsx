@@ -36,6 +36,7 @@ const PropertyDetails = () => (
                     ]}
                     layout="vertical"
                     className={styles.formItemInput}
+                    validateFirst={true}
                 >
                     <Input type="number" />
                 </Form.Item>
@@ -49,7 +50,7 @@ const PropertyDetails = () => (
                                     return Promise.reject(new Error("ფართობი უნდა იყოს რიცხობრივი!"));
                                 }
                                 if (value <= 0) {
-                                    return Promise.reject(new Error("ფართობი უნდა იყოს დადებითი რიცხობრივი!"));
+                                    return Promise.reject(new Error("ფართობი უნდა იყოს დადებითი!"));
                                 }
 
                                 return Promise.resolve();
@@ -58,6 +59,7 @@ const PropertyDetails = () => (
                     ]}
                     layout="vertical"
                     className={styles.formItemInput}
+                    validateFirst={true}
                 >
                     <Input type="number" />
                 </Form.Item>
@@ -73,10 +75,10 @@ const PropertyDetails = () => (
                         {
                             validator: (_, value) => {
                                 if (isNaN(value) || value <= 0) {
-                                    return Promise.reject(new Error("საძინებლის რაოდენობა უნდა იყოს დადებითი რიცხობრივი!"));
+                                    return Promise.reject(new Error("საძინებლის რაოდენობა უნდა იყოს დადებითი!"));
                                 }
                                 if (value % 1 !== 0) {
-                                    return Promise.reject(new Error("საძინებლის რაოდენობა უნდა იყოს მთელი რიცხობრივი!"));
+                                    return Promise.reject(new Error("საძინებლის რაოდენობა უნდა იყოს მთელი რიცხვი!"));
                                 }
                                 return Promise.resolve();
                             },
@@ -84,6 +86,7 @@ const PropertyDetails = () => (
                     ]}
                     layout="vertical"
                     className={styles.formItemInput}
+                    validateFirst={true}
                 >
                     <Input type="number"/>
                 </Form.Item>

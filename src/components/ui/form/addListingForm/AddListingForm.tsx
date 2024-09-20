@@ -1,4 +1,4 @@
-import {Form, FormProps} from "antd";
+import {Form, FormProps, UploadFile} from "antd";
 import TransactionType from "../transactionType/TransactionType";
 import {FieldType} from "../../../../types/form/form.type";
 import LocationDetails from "../locationDetails/LocationDetails";
@@ -11,10 +11,12 @@ import {$api} from "../../../../http";
 const AddListingForm = () => {
 
     const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-        const file = values?.image?.file.originFileObj
+        const file = values?.image?.file as UploadFile<any> & File;
+        console.log(file)
         if(!file){
             throw Error
         }
+
         const formData = new FormData();
         formData.append("image", file)
 
