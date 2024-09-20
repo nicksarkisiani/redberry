@@ -1,6 +1,7 @@
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import {Form, Select, Typography} from "antd";
 import styles from "../form.module.scss"
+import {FieldType} from "../../../../types/form/form.type";
 
 const AgentSelect = () => {
     const { agents } = useTypedSelector(state => state.agents);
@@ -10,7 +11,7 @@ const AgentSelect = () => {
             className={styles.formItem}
         >
             <Typography.Title level={5}>აგენტი</Typography.Title>
-            <Form.Item
+            <Form.Item<FieldType>
                 label="აირჩიე"
                 name="agent_id"
                 layout="vertical"

@@ -2,6 +2,7 @@ import {Form, Input, Typography} from "antd";
 import TextArea from "antd/es/input/TextArea";
 import FileUploader from "../fileUploader/FileUploader";
 import styles from "../form.module.scss"
+import {FieldType} from "../../../../types/form/form.type";
 
 
 const PropertyDetails = () => (
@@ -17,7 +18,7 @@ const PropertyDetails = () => (
             <div
                 className={styles.row}
             >
-                <Form.Item
+                <Form.Item<FieldType>
                     label="ფასი"
                     name="price"
                     rules={[{ required: true, message: "სავალდებულოა!" },
@@ -40,7 +41,7 @@ const PropertyDetails = () => (
                 >
                     <Input type="number" />
                 </Form.Item>
-                <Form.Item
+                <Form.Item<FieldType>
                     label="ფართობი"
                     name="area"
                     rules={[{ required: true, message: "სავალდებულოა!" },
@@ -67,7 +68,7 @@ const PropertyDetails = () => (
             <div
                 className={styles.row}
             >
-                <Form.Item
+                <Form.Item<FieldType>
                     label="საძინებლის რაოდენობა"
                     name="bedrooms"
                     rules={[
@@ -91,7 +92,7 @@ const PropertyDetails = () => (
                     <Input type="number"/>
                 </Form.Item>
             </div>
-            <Form.Item
+            <Form.Item<FieldType>
                 label="აღწერა"
                 name="description"
                 rules={[{ required: true, message: "სავალდებულოა!"},{type: "string", min: 4, message: "სავალდებულოა მინიმუმ 4 სიმბოლო!" }]}

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Upload, Form, UploadFile, message} from 'antd';
 import {PlusCircleOutlined} from '@ant-design/icons';
-import {FieldType} from "../../../../types/form/form.type";
+import {AgentType, FieldType} from "../../../../types/form/form.type";
 import {UploadChangeParam} from "antd/es/upload";
 
 const {Dragger} = Upload;
@@ -22,12 +22,13 @@ const FileUploader: React.FC = () => {
 
     }
     return (
-        <Form.Item<FieldType>
+        <Form.Item<FieldType | AgentType>
             label="ატვირთეთ ფაილი"
             name="image"
             rules={[{required: true, message: "სავალდებულოა!"}]}
             style={{height: "157px"}}
             layout="vertical"
+            onReset={() => setFileList([])}
         >
             <Dragger
                 name="file"

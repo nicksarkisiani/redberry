@@ -40,7 +40,7 @@ const LocationDetails = () => {
                     >
                         <Input/>
                     </Form.Item>
-                    <Form.Item
+                    <Form.Item<FieldType>
                         label="საფოსტო ინდექსი"
                         name="zip_code"
                         validateFirst={true}
@@ -67,7 +67,7 @@ const LocationDetails = () => {
                 <div
                     className={styles.row}
                 >
-                    <Form.Item
+                    <Form.Item<FieldType>
                         label="რეგიონი"
                         name="region_id"
                         layout="vertical"
@@ -83,7 +83,7 @@ const LocationDetails = () => {
                             onChange={(id) => printCitiesHandler(id)}
                         />
                     </Form.Item>
-                    <Form.Item
+                    <Form.Item<FieldType>
                         label="ქალაქი"
                         name="city_id"
                         layout="vertical"

@@ -14,3 +14,11 @@ export type FieldType = {
     agent_id: number
     description: string
 };
+
+export type AgentType = {
+    name: string
+    surname: string
+    email: string
+    phone: number
+    avatar: UploadChangeParam<UploadFile<any>>
+}

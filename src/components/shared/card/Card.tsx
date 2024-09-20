@@ -3,10 +3,10 @@ import Image from "../button/image/Image";
 import IconInfo from "./iconInfo/IconInfo";
 import Field from "../button/field/Field";
 import styles from "./card.module.scss";
-import SignSvg from "../estate/svgs/SignSvg";
-import AreaSvg from "../estate/svgs/AreaSvg";
-import LocationSvg from "../estate/svgs/LocationSvg";
-import BedSvg from "../estate/svgs/BedSvg";
+import SignSvg from "../svgs/SignSvg";
+import AreaSvg from "../svgs/AreaSvg";
+import LocationSvg from "../svgs/LocationSvg";
+import BedSvg from "../svgs/BedSvg";
 
 const Card = () => {
     return (

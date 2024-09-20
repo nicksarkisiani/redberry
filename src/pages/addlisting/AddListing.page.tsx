@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from "antd";
 import styles from "./addListingPage.module.scss"
-import AddListingForm from "../../components/ui/form/addListingForm/AddListingForm";
+import AddListingForm from "../../components/ui/listing/addListingForm/AddListingForm";
 
 const AddListingPage = () => {
     return (

@@ -4,11 +4,16 @@ import {FieldType} from "../../../../types/form/form.type";
 import LocationDetails from "../locationDetails/LocationDetails";
 import PropertyDetails from "../propertyDetails/PropertyDetails";
 import AgentSelect from "../agentSelect/AgentSelect";
-import FormButtons from "../formButtons/FormButtons";
 import styles from "../form.module.scss"
 import {$api} from "../../../../http";
+import {useNavigate} from "react-router";
+import CreateButtons from "../../../shared/createButtons/CreateButtons";
+import React from "react";
 
 const AddListingForm = () => {
+
+    const [form] = Form.useForm();
+    const navigate = useNavigate();
 
     const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
         const file = values?.image?.file as UploadFile<any> & File;
@@ -27,7 +32,13 @@ const AddListingForm = () => {
             }
         });
         $api.post("/real-estates", formData)
+        form.resetFields()
     };
+
+    const onCancel = () => {
+        form.resetFields();
+        navigate("/")
+    }
 
     const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -40,14 +51,22 @@ const AddListingForm = () => {
             onFinishFailed={onFinishFailed}
             initialValues={{ is_rental: "0" }}
             className={styles.form}
+            form={form}
         >
             <TransactionType />
             <LocationDetails />
             <PropertyDetails />
             <AgentSelect />
-            <FormButtons />
+            <div
+                className={styles.formSubmit}
+            >
+                <Form.Item>
+                    <CreateButtons onClickFirst={onCancel} textFirst={"გაუქმება"} textSecond={"დაამატე ლისტინგი"}/>
+                </Form.Item>
+            </div>
         </Form>
     );
 };
 
 export default AddListingForm
+
