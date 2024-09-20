@@ -1,12 +1,12 @@
 import React from 'react';
-import Image from "../../ui/image/Image";
-import IconInfo from "../../ui/iconInfo/IconInfo";
-import Field from "../../ui/field/Field";
+import Image from "../button/image/Image";
+import IconInfo from "./iconInfo/IconInfo";
+import Field from "../button/field/Field";
 import styles from "./card.module.scss";
-import SignSvg from "../../ui/svgs/SignSvg";
-import AreaSvg from "../../ui/svgs/AreaSvg";
-import LocationSvg from "../../ui/svgs/LocationSvg";
-import BedSvg from "../../ui/svgs/BedSvg";
+import SignSvg from "../estate/svgs/SignSvg";
+import AreaSvg from "../estate/svgs/AreaSvg";
+import LocationSvg from "../estate/svgs/LocationSvg";
+import BedSvg from "../estate/svgs/BedSvg";
 
 const Card = () => {
     return (

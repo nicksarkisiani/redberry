@@ -4,12 +4,13 @@ import {useActions} from "./hooks/useActions";
 import {Outlet} from "react-router";
 
 function App() {
-    const {fetchEstates} = useActions()
+    const {fetchEstates, fetchData, fetchAgents} = useActions()
 
     useEffect(() => {
         fetchEstates()
-
-    }, [fetchEstates])
+        fetchData()
+        fetchAgents()
+    }, [fetchEstates, fetchData, fetchAgents])
 
   return (
     <div className="App">
