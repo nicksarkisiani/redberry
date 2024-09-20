@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./iconInfo.module.scss"
-import Field from "../../button/field/Field";
+import Field from "../../field/Field";
 
 interface IconInfoProps {
     text: string

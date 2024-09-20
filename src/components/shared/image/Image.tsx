@@ -12,7 +12,7 @@ const Image: React.FC<ImageProps> = ({width, height, src, children}) => {
     return (
         <div style={{width, height}} className={styles.container}>
             <img
-                style={{width: "100%", height: "100%", objectFit: "cover"}}
+                style={{width: "100%", height: "100%", objectFit: "contain"}}
                 src={src} alt="default"/>
             {children}
         </div>
