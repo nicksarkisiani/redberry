@@ -9,10 +9,6 @@ const Toolbar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
 
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-
     const changeIsModalOpen = (isOpen: boolean) => {
         setIsModalOpen(isOpen)
     }
