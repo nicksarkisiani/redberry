@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, InputNumber, List, Select, Space} from "antd";
+import {Button, InputNumber, List, message, Select, Space} from "antd";
 import styles from "./filter.module.scss"
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {useActions} from "../../../hooks/useActions";
@@ -7,21 +7,20 @@ import {useActions} from "../../../hooks/useActions";
 const Filter = () => {
 
     const {filter} = useTypedSelector(state => state.filter)
-    const {filterByArea, filterByBedrooms, reset} = useActions()
+    const {filterByArea, filterByBedrooms, reset, filterByMinPrice, filterByMaxPrice} = useActions()
 
     const regions = filter.map(estate => estate.city.region)
     const uniqueRegions = Array.from(
         new Map(regions.map(region => [region?.id, region])).values()
     );
 
-    // const prices = Array.from(new Set(filter.map(estate => estate.price))).sort((a, b) => a - b)
+    const prices = Array.from(new Set(filter.map(estate => estate.price))).sort((a, b) => a - b)
     const areas = Array.from(new Set(filter.map(estate => estate.area))).sort((a, b) => a - b)
     const bedrooms = Array.from(new Set(filter.map(estate => estate.bedrooms))).sort((a, b) => a - b)
 
     const [minPrice, setMinPrice] = useState<number | null>(null);
     const [maxPrice, setMaxPrice] = useState<number | null>(null);
 
-    const prices = [100, 200, 300, 400, 500];
 
     const minPrices = prices.slice(0, prices.length - 1);
 
@@ -36,10 +35,31 @@ const Filter = () => {
         reset()
     }
 
+    const searchByPrices = () => {
+        if(minPrice && maxPrice) {
+            if(minPrice > maxPrice){
+                message.error("გთხოვთ შეიყვანოთ ვალიდური რიცხვები")
+                return;
+            }
+            filterByMinPrice(minPrice)
+            filterByMaxPrice(maxPrice)
+        }
+        if(minPrice) {
+            filterByMinPrice(minPrice)
+            return;
+        }
+        if(maxPrice) {
+            filterByMaxPrice(maxPrice)
+            return;
+        }
+
+
+    }
+
     return (
         <div className={styles.container}>
             <Select
-                defaultValue="რეგიონი"
+                placeholder="რეგიონი"
                 style={{ width: 120, textAlign: "center" }}
                 options={uniqueRegions.map(region => {
                     return {
@@ -49,13 +69,16 @@ const Filter = () => {
                 })}
                 dropdownStyle={{width:"731px"}}
                 variant="borderless"
+                allowClear={true}
+                onClear={onReset}
             />
             <Select
-                defaultValue="საფასო კატეგორია"
+                placeholder="საფასო კატეგორია"
                 style={{ width: 200, textAlign: "center" }}
-
                 dropdownStyle={{width:"382px"}}
                 variant="borderless"
+                allowClear={true}
+                onClear={onReset}
                 dropdownRender={(menu) => (
                     <div>
                         <div style={{ padding: 8 }}>
@@ -104,18 +127,23 @@ const Filter = () => {
                         </Space>
                         <Button
                             type="primary"
-                            onClick={() => {
-                                console.log('Min Price:', minPrice, 'Max Price:', maxPrice);
-                            }}
+                            onClick={searchByPrices}
                             style={{ marginTop: 8, width: '100%' }}
                         >
                             ძებნა
+                        </Button>
+                        <Button
+                            type="default"
+                            onClick={onReset}
+                            style={{ marginTop: 8, width: '100%' }}
+                        >
+                            გაუქმება
                         </Button>
                     </div>
                 )}
             />
             <Select
-                defaultValue="ფართობი"
+                placeholder="ფართობი"
                 style={{ width: 124, textAlign: "center" }}
                 options={areas.map(area => {
                     return {
@@ -130,7 +158,7 @@ const Filter = () => {
                 onClear={onReset}
             />
             <Select
-                defaultValue="საძინებლების რაოდენობა"
+                placeholder="საძინებლების რაოდენობა"
                 style={{ width: 262, textAlign: "center" }}
                 options={bedrooms.map(bedroom => {
                     return {

@@ -15,9 +15,9 @@ const AddListingForm = () => {
     const [form] = Form.useForm();
     const navigate = useNavigate();
 
-    const {addEstate} = useActions()
+    const {addEstate, fetchEstates} = useActions()
 
-    const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
+    const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
         const file = values?.image?.file as UploadFile<any> & File;
         if(!file){
             throw Error
@@ -32,7 +32,8 @@ const AddListingForm = () => {
                 formData.append(key, value !== undefined ? String(value) : '');
             }
         });
-        addEstate(formData)
+        await addEstate(formData)
+        await fetchEstates()
         form.resetFields()
         navigate("/")
     };
