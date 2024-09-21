@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {$api} from "../../../http";
+import {IEstate} from "../../../types/store";
 
 export const fetchEstates = createAsyncThunk(
     'estate/fetchEstates',
@@ -8,18 +9,6 @@ export const fetchEstates = createAsyncThunk(
         return response.data;
     }
 )
-
-interface IEstate {
-    id: number
-    address: string
-    zip_code: number
-    price: number
-    area: number
-    bedrooms: number
-    image: string
-    is_rental: number
-    city_id: number
-}
 
 interface State {
     estates: IEstate[]

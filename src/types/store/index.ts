@@ -8,3 +8,15 @@ export interface ICity {
     name: string
     region_id: number
 }
+
+export interface IEstate {
+    id: number
+    address: string
+    zip_code: number
+    price: number
+    area: number
+    bedrooms: number
+    image: string
+    is_rental: number
+    city_id: number
+}
