@@ -8,6 +8,7 @@ import CreateButtons from "../../../shared/createButtons/CreateButtons";
 import AgentsDetails from "../agentsDetails/AgentsDetails";
 import {FieldType} from "../../../../types/form/form.type";
 import {$api} from "../../../../http";
+import {useActions} from "../../../../hooks/useActions";
 
 interface AddAgentFormProps {
     closeModal: Function
@@ -16,6 +17,8 @@ interface AddAgentFormProps {
 const AddAgentForm: React.FC<AddAgentFormProps> = ({closeModal}) => {
 
     const [form] = Form.useForm();
+
+    const {addAgent} = useActions()
 
     const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
         const file = values?.image?.file as UploadFile<any> & File;
@@ -33,7 +36,7 @@ const AddAgentForm: React.FC<AddAgentFormProps> = ({closeModal}) => {
                 formData.append(key, value !== undefined ? String(value) : '');
             }
         });
-        $api.post("/agents", formData)
+        addAgent(formData)
         form.resetFields()
     };
 

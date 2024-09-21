@@ -7,13 +7,13 @@ import styles from "./main.module.scss"
 
 const MainPage = () => {
 
-    const {estates} = useTypedSelector(state => state.filter)
+    const {filter} = useTypedSelector(state => state.filter)
 
     return (
         <div className={styles.container}>
             <Toolbar/>
             <Space wrap={true} size="middle" style={{columnGap: "18px", rowGap: "20px"}}>
-                {estates.map(estate => (
+                {filter.map(estate => (
                     <Card is_rental={estate.is_rental} price={estate.price} address={estate.address}
                           bedrooms={estate.bedrooms} area={estate.area} zip_code={estate.zip_code} img_path={estate.image} key={estate.id} />
                 ))}

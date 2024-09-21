@@ -15,7 +15,7 @@ export const listingLoader: LoaderFunction = async ({params}): Promise<IEstate> 
 const ListingPage = () => {
 
     const listing = useLoaderData() as { listing: IEstate}
-
+    console.log(listing)
     return (
         <div>
 

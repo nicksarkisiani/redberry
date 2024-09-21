@@ -9,15 +9,17 @@ import {$api} from "../../../../http";
 import {useNavigate} from "react-router";
 import CreateButtons from "../../../shared/createButtons/CreateButtons";
 import React from "react";
+import {useActions} from "../../../../hooks/useActions";
 
 const AddListingForm = () => {
 
     const [form] = Form.useForm();
     const navigate = useNavigate();
 
+    const {addEstate} = useActions()
+
     const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
         const file = values?.image?.file as UploadFile<any> & File;
-        console.log(file)
         if(!file){
             throw Error
         }
@@ -31,7 +33,7 @@ const AddListingForm = () => {
                 formData.append(key, value !== undefined ? String(value) : '');
             }
         });
-        $api.post("/real-estates", formData)
+        addEstate(formData)
         form.resetFields()
     };
 

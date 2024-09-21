@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-import {estateSlice, fetchEstates} from "../store/reducers/estate/estate.slice";
+import {estateSlice, fetchEstates, addEstate} from "../store/reducers/estate/estate.slice";
 import {fetchData} from "../store/reducers/location/location.slice";
-import {fetchAgents} from "../store/reducers/agents/agents.slice";
+import {fetchAgents, addAgent} from "../store/reducers/agents/agents.slice";
 import {filterSlice} from "../store/reducers/filter/filter.slice";
 
 const rootActions = {
@@ -10,7 +10,9 @@ const rootActions = {
     ...filterSlice.actions,
     fetchEstates,
     fetchData,
-    fetchAgents
+    fetchAgents,
+    addEstate,
+    addAgent
 };
 
 export const useActions = () => {
