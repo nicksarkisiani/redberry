@@ -4,6 +4,7 @@ import CreateButtons from "../../shared/createButtons/CreateButtons";
 import {PlusOutlined} from "@ant-design/icons";
 import {useNavigate} from "react-router";
 import AddAgentModal from "../../ui/agent/addAgentModal/AddAgentModal";
+import {Space} from "antd";
 
 const Toolbar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +15,7 @@ const Toolbar = () => {
     }
 
     return (
-        <div>
+        <Space style={{justifyContent: 'space-between'}}>
             <Filter/>
             <div>
                 <CreateButtons textFirst={`აგენტის დამატება`} textSecond={"ლისტინგის დამატება"} icon={<PlusOutlined/>}
@@ -23,7 +24,7 @@ const Toolbar = () => {
                 />
                 <AddAgentModal changeIsModalOpen={changeIsModalOpen} isModalOpen={isModalOpen}/>
             </div>
-        </div>
+        </Space>
     );
 };
 

@@ -7,6 +7,7 @@ export interface ICity {
     id: number
     name: string
     region_id: number
+    region?: IRegion
 }
 
 export interface IEstate {
@@ -19,4 +20,5 @@ export interface IEstate {
     image: string
     is_rental: number
     city_id: number
+    city: ICity
 }

@@ -1,11 +1,14 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {$api} from "../../../http";
 import {IEstate} from "../../../types/store";
+import {resetOrInitialize} from "../filter/filter.slice";
+import {AxiosResponse} from "axios";
 
 export const fetchEstates = createAsyncThunk(
     'estate/fetchEstates',
-    async function () {
-        const response = await $api.get('/real-estates');
+    async function (_ , thunkAPI): Promise<IEstate[]> {
+        const response: AxiosResponse<IEstate[]> = await $api.get('/real-estates');
+        thunkAPI.dispatch(resetOrInitialize(response.data))
         return response.data;
     }
 )
