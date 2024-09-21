@@ -16,15 +16,17 @@ interface CardProps {
     area: number
     zip_code: number
     img_path: string
+    onClick: Function
+    id: number
 }
 
 
 const Card: React.FC<CardProps> = ({
                                        area, bedrooms, price, zip_code, is_rental, address
-                                       , img_path
+                                       , img_path, onClick, id
                                    }) => {
     return (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={() => onClick(id)}>
             <Image width={"384px"} height={"307px"} src={img_path}>
                 <span>{!!is_rental ? "ქირავდება" : "იყიდება"}</span>
             </Image>
@@ -34,8 +36,8 @@ const Card: React.FC<CardProps> = ({
                     <IconInfo text={address} svg={<LocationSvg/>}/>
                 </div>
                 <div className={styles.details}>
-                    <IconInfo text={`${bedrooms}`} svg={<BedSvg/>}/>
-                    <IconInfo text={`${area} მ`} svg={<AreaSvg/>}>
+                    <IconInfo text={`${bedrooms}`} svg={<BedSvg/>} />
+                    <IconInfo text={`${area} მ`} svg={<AreaSvg/>} width={"59px"}>
                         <sup>2</sup>
                     </IconInfo>
                     <IconInfo text={`${zip_code}`} svg={<SignSvg/>}/>

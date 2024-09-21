@@ -6,14 +6,14 @@ interface IconInfoProps {
     text: string
     svg?: React.ReactNode
     children?: React.ReactNode;
-
+    width?: string
 }
 
-const IconInfo: React.FC<IconInfoProps> = ({text,svg, children}) => {
+const IconInfo: React.FC<IconInfoProps> = ({text,svg, width, children}) => {
     return (
         <div className={styles.container}>
             {svg}
-            <Field fontSize={16} color={"rgba(2, 21, 38, 0.7)"}>{text}{children}</Field>
+            <Field fontSize={16} color={"rgba(2, 21, 38, 0.7)"} width={width}>{text}{children}</Field>
         </div>
     );
 };

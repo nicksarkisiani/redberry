@@ -8,6 +8,7 @@ export const fetchEstates = createAsyncThunk(
     'estate/fetchEstates',
     async function (_, thunkAPI): Promise<IEstate[]> {
         const response: AxiosResponse<IEstate[]> = await $api.get('/real-estates');
+        console.log(response.data)
         thunkAPI.dispatch(initialize(response.data))
         return response.data;
     }

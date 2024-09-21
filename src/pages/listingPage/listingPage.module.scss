@@ -1,0 +1,50 @@
+.button {
+  background-color: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+.container {
+  width: 1592px;
+  margin: 0 auto;
+  padding: 64px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 68px;
+}
+
+.right {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.listingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.locationInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  vertical-align: middle;
+  span {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3.5px;
+  }
+}
