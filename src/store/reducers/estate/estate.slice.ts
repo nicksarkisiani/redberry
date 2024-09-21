@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {$api} from "../../../http";
 import {IEstate} from "../../../types/store";
 import {initialize} from "../filter/filter.slice";

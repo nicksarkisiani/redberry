@@ -7,7 +7,6 @@ import styles from "../../listing/form.module.scss";
 import CreateButtons from "../../../shared/createButtons/CreateButtons";
 import AgentsDetails from "../agentsDetails/AgentsDetails";
 import {FieldType} from "../../../../types/form/form.type";
-import {$api} from "../../../../http";
 import {useActions} from "../../../../hooks/useActions";
 
 interface AddAgentFormProps {

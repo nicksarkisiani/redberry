@@ -5,7 +5,6 @@ import LocationDetails from "../locationDetails/LocationDetails";
 import PropertyDetails from "../propertyDetails/PropertyDetails";
 import AgentSelect from "../agentSelect/AgentSelect";
 import styles from "../form.module.scss"
-import {$api} from "../../../../http";
 import {useNavigate} from "react-router";
 import CreateButtons from "../../../shared/createButtons/CreateButtons";
 import React from "react";
