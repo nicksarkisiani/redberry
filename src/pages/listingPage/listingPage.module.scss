@@ -2,12 +2,25 @@
   background-color: #fff;
   border: none;
   box-shadow: none;
+  align-self: flex-start;
 }
 
 .container {
   width: 1592px;
   margin: 0 auto;
   padding: 64px;
+}
+
+.gap {
+  display: flex;
+  flex-direction: column;
+  gap: 53px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .row {

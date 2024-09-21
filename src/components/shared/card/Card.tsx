@@ -37,7 +37,7 @@ const Card: React.FC<CardProps> = ({
                 </div>
                 <div className={styles.details}>
                     <IconInfo text={`${bedrooms}`} svg={<BedSvg/>} />
-                    <IconInfo text={`${area} მ`} svg={<AreaSvg/>} width={"59px"}>
+                    <IconInfo text={`${area} მ`} svg={<AreaSvg/>} width={"66px"}>
                         <sup>2</sup>
                     </IconInfo>
                     <IconInfo text={`${zip_code}`} svg={<SignSvg/>}/>

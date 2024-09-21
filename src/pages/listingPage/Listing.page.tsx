@@ -56,13 +56,14 @@ const ListingPage = () => {
 
     return (
         <div className={styles.container}>
-            <div>
-                <Button className={styles.button}>
+            <div className={styles.gap}>
+                <Button className={styles.button} onClick={() => navigate("/")}>
                     <ArrowLeftOutlined/>
                 </Button>
                 <div className={styles.row}>
                     <div className={styles.left}>
                         <Image width={"839px"} height={"670px"} src={listing.image}/>
+                        <Field fontSize={16} color={"#808A93"}>გამოქვეყნების თარიღი 08/08/24</Field>
                     </div>
 
                     <div className={styles.right}>
