@@ -48,3 +48,49 @@
     gap: 3.5px;
   }
 }
+
+.agentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.agent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid #DBDBDB;
+  border-radius: 8px;
+  padding: 24px 20px;
+}
+
+.agentAbout {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+}
+
+.agentName {
+  h4{
+    margin: 0;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.agentContact {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.delete{
+  .button {
+    border: 1px solid #676E76;
+    padding: 10px;
+    font-family: "Firago", sans-serif;
+    font-size: 12px;
+  }
+}
